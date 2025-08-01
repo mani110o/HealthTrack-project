@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HealthTrack – Patient Wellness Dashboard</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome (icons) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
+  <link rel="stylesheet" href="styles/style.css" />
+</head>
+<body>
+  <!-- Mobile sidebar toggle (CSS-only) -->
+  <input type="checkbox" id="sidebarToggle" class="sidebar-toggle" aria-hidden="true" />
+
+  <div class="app-grid">
+    <!-- =============== Sidebar =============== -->
+    <aside class="sidebar" aria-label="Primary">
+      <label class="close-sidebar" for="sidebarToggle" aria-label="Close sidebar">
+        <i class="fa-solid fa-xmark"></i>
+      </label>
+
+      <div class="brand">
+        <i class="fa-solid fa-heart-pulse" aria-hidden="true"></i>
+        <span class="brand-text">HealthTrack</span>
+      </div>
+
+      <nav class="nav">
+        <ul>
+          <li class="active">
+            <a href="#" aria-current="page">
+              <i class="fa-solid fa-gauge-high" aria-hidden="true"></i>
+              <span>Overview</span>
+            </a>
+          </li>
+          <li>
+            <a href="#appointments">
+              <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>
+              <span>Appointments</span>
+            </a>
+          </li>
+          <li>
+            <a href="#prescriptions">
+              <i class="fa-solid fa-prescription-bottle-medical" aria-hidden="true"></i>
+              <span>Prescriptions</span>
+            </a>
+          </li>
+          <li>
+            <a href="#reports">
+              <i class="fa-solid fa-file-medical" aria-hidden="true"></i>
+              <span>Reports</span>
+            </a>
+          </li>
+          <li>
+            <a href="#settings">
+              <i class="fa-solid fa-gear" aria-hidden="true"></i>
+              <span>Settings</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="sidebar-foot">
+        <button class="btn-outline" type="button" aria-label="Contact support">
+          <i class="fa-regular fa-life-ring" aria-hidden="true"></i> Support
+        </button>
+      </div>
+    </aside>
+
+    <!-- =============== Header =============== -->
+    <header class="topbar">
+      <!-- Hamburger for mobile -->
+      <label class="hamburger" for="sidebarToggle" aria-label="Open sidebar">
+        <i class="fa-solid fa-bars"></i>
+      </label>
+
+      <form class="search" role="search" aria-label="Search records">
+        <label for="global-search" class="sr-only">Search</label>
+        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+        <input id="global-search" name="q" type="search" placeholder="Search…">
+      </form>
+
+      <div class="topbar-actions">
+        <button class="icon-btn" type="button" aria-label="Notifications">
+          <i class="fa-regular fa-bell" aria-hidden="true"></i>
+          <span class="badge" aria-hidden="true">3</span>
+        </button>
+
+        <div class="divider" aria-hidden="true"></div>
+
+        <div class="profile" aria-label="Patient profile">
+          <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=300&auto=format&fit=crop"
+               alt="Patient avatar" />
+          <div class="profile-meta">
+            <strong>John Doe</strong>
+            <span>Patient ID: HT-10293</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- =============== Main =============== -->
+    <main class="content">
+      <!-- Health Summary / Metrics -->
+      <section class="grid-cards" aria-labelledby="health-summary-title">
+        <h2 id="health-summary-title" class="sr-only">Health metrics summary</h2>
+
+        <!-- Heart Rate -->
+        <article class="card metric" aria-label="Heart Rate">
+          <div class="metric-icon heart">
+            <i class="fa-solid fa-heartbeat" aria-hidden="true"></i>
+          </div>
+          <div class="metric-info">
+            <h3>Heart Rate</h3>
+            <p class="metric-value">76 <span>bpm</span></p>
+            <p class="metric-trend up"><i class="fa-solid fa-arrow-trend-up"></i> +2 today</p>
+          </div>
+        </article>
+
+        <!-- Blood Pressure -->
+        <article class="card metric" aria-label="Blood Pressure">
+          <div class="metric-icon pressure">
+            <i class="fa-solid fa-stethoscope" aria-hidden="true"></i>
+          </div>
+          <div class="metric-info">
+            <h3>Blood Pressure</h3>
+            <p class="metric-value">118/76 <span>mmHg</span></p>
+            <p class="metric-trend ok"><i class="fa-solid fa-circle-check"></i> Normal</p>
+          </div>
+        </article>
+
+        <!-- Oxygen Level -->
+        <article class="card metric" aria-label="Oxygen Level">
+          <div class="metric-icon oxygen">
+            <i class="fa-solid fa-lungs" aria-hidden="true"></i>
+          </div>
+          <div class="metric-info">
+            <h3>Oxygen Level</h3>
+            <p class="metric-value">98 <span>% SpO₂</span></p>
+            <p class="metric-trend ok"><i class="fa-solid fa-circle-check"></i> Stable</p>
+          </div>
+        </article>
+
+        <!-- BMI -->
+        <article class="card metric" aria-label="Body Mass Index">
+          <div class="metric-icon bmi">
+            <i class="fa-solid fa-weight-scale" aria-hidden="true"></i>
+          </div>
+          <div class="metric-info">
+            <h3>BMI</h3>
+            <p class="metric-value">23.4</p>
+            <p class="metric-trend ok"><i class="fa-solid fa-circle-check"></i> Healthy range</p>
+          </div>
+        </article>
+      </section>
+
+      <!-- Two-column sections -->
+      <section class="two-col">
+        <!-- Appointments -->
+        <article class="card" id="appointments" aria-labelledby="appointments-title">
+          <div class="card-head">
+            <h2 id="appointments-title"><i class="fa-solid fa-calendar-check"></i> Upcoming & Past Appointments</h2>
+            <a class="link" href="#" aria-label="Add new appointment"><i class="fa-solid fa-plus"></i> New</a>
+          </div>
+
+          <div class="table-wrap" role="region" aria-label="Appointments table" tabindex="0">
+            <table class="table">
+              <caption class="sr-only">Appointments</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Date</th>
+                  <th scope="col">Time</th>
+                  <th scope="col">Doctor</th>
+                  <th scope="col">Department</th>
+                  <th scope="col">Status</th>
+                  <th scope="col"><span class="sr-only">Actions</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>29 Jul 2025</td>
+                  <td>10:30 AM</td>
+                  <td>Dr. Priya N</td>
+                  <td>Cardiology</td>
+                  <td><span class="chip chip-upcoming">Upcoming</span></td>
+                  <td><button class="chip-action" aria-label="View appointment 1">View</button></td>
+                </tr>
+                <tr>
+                  <td>18 Jul 2025</td>
+                  <td>03:00 PM</td>
+                  <td>Dr. Arun K</td>
+                  <td>General</td>
+                  <td><span class="chip chip-completed">Completed</span></td>
+                  <td><button class="chip-action" aria-label="View appointment 2">View</button></td>
+                </tr>
+                <tr>
+                  <td>30 Jun 2025</td>
+                  <td>11:15 AM</td>
+                  <td>Dr. Aisha M</td>
+                  <td>Pulmonology</td>
+                  <td><span class="chip chip-cancelled">Cancelled</span></td>
+                  <td><button class="chip-action" aria-label="View appointment 3">View</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <!-- Prescriptions -->
+        <article class="card" id="prescriptions" aria-labelledby="prescriptions-title">
+          <div class="card-head">
+            <h2 id="prescriptions-title"><i class="fa-solid fa-prescription-bottle-medical"></i> Prescriptions</h2>
+          </div>
+
+          <ul class="rx-list">
+            <li>
+              <div class="rx-left">
+                <i class="fa-solid fa-capsules" aria-hidden="true"></i>
+                <div>
+                  <strong>Atorvastatin</strong>
+                  <span>10 mg • Night • After food</span>
+                </div>
+              </div>
+              <div class="rx-right">
+                <a href="#" class="rx-doc">Dr. Priya N</a>
+                <span class="rx-duration">30 days</span>
+              </div>
+            </li>
+            <li>
+              <div class="rx-left">
+                <i class="fa-solid fa-tablets" aria-hidden="true"></i>
+                <div>
+                  <strong>Metformin</strong>
+                  <span>500 mg • Morning/Evening</span>
+                </div>
+              </div>
+              <div class="rx-right">
+                <a href="#" class="rx-doc">Dr. Arun K</a>
+                <span class="rx-duration">14 days</span>
+              </div>
+            </li>
+            <li>
+              <div class="rx-left">
+                <i class="fa-solid fa-syringe" aria-hidden="true"></i>
+                <div>
+                  <strong>Vitamin B12</strong>
+                  <span>Injection • Weekly</span>
+                </div>
+              </div>
+              <div class="rx-right">
+                <a href="#" class="rx-doc">Dr. Aisha M</a>
+                <span class="rx-duration">4 weeks</span>
+              </div>
+            </li>
+          </ul>
+        </article>
+      </section>
+
+      <!-- Patient Profile -->
+      <section class="card profile-card" aria-labelledby="profile-title">
+        <div class="card-head">
+          <h2 id="profile-title"><i class="fa-solid fa-user"></i> Patient Profile</h2>
+          <a class="link" href="#settings">Edit</a>
+        </div>
+        <div class="profile-grid">
+          <div class="profile-row"><span class="label">Name</span><span class="value">John Doe</span></div>
+          <div class="profile-row"><span class="label">Age</span><span class="value">32</span></div>
+          <div class="profile-row"><span class="label">Gender</span><span class="value">Male</span></div>
+          <div class="profile-row"><span class="label">Email</span><span class="value"><a href="mailto:john@example.com">john@example.com</a></span></div>
+          <div class="profile-row"><span class="label">Phone</span><span class="value"><a href="tel:+1-555-0123">+1-555-0123</a></span></div>
+          <div class="profile-row"><span class="label">Doctor Assigned</span><span class="value">Dr. Priya N</span></div>
+          <div class="profile-row"><span class="label">Blood Group</span><span class="value">O +</span></div>
+          <div class="profile-row"><span class="label">Allergies</span><span class="value">Penicillin</span></div>
+        </div>
+      </section>
+
+      <!-- Placeholder sections for anchors -->
+      <section id="reports" class="sr-only" aria-hidden="true"></section>
+      <section id="settings" class="sr-only" aria-hidden="true"></section>
+    </main>
+  </div>
+
+  <!-- Visually hidden utility -->
+  <span class="sr-only" id="end-of-page">End of page</span>
+</body>
+</html>
